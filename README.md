@@ -16,6 +16,15 @@ Probability and Statistics -
 Convex Optimization -
 
 ## 1. Signals and systems
+System modeling -
+Linearity and time invariance -
+Impulse, step, causuality, memory
+Fourier / Laplace theory -
+State Space -
+Stability notations -
+Continous vs Discrete -
+Noise as a signal -
+Data operations and libraries -
 
 ## 2. Feedback control
 
