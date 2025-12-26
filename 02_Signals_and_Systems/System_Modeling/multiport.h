@@ -1,5 +1,8 @@
 // by Chester Zelaya
 
+#include <string>
+#include <vector>
+
 /* Multiports in system modeling work under the assumption
  * the interconnected subsystems have power
  * that flow between themselves. The terminology effort
@@ -23,13 +26,15 @@ enum class ioDirection {
 };
 
 struct powerPair {
+  std::string name;
   double effort;
   double flow;
   domain domain;
-  ioDirection direction;
+  // Flow direction is the opposite of effort_direction.
+  ioDirection effort_direction;
 };
 
-constexpr powerPair addPowerPair(domain d);
+powerPair addPowerPair(domain d);
 
 /* @brief Power calculated by multiplying effort with flow */
 double getPower(powerPair pp);
@@ -46,6 +51,20 @@ struct energyPair {
   double momentum;
   double displacement;
   ioDirection direction;
+};
+
+/* @brief Active bond for control input (single signal, not a power pair) */
+struct activeBond {
+  double control;
+  ioDirection direction;
+};
+
+/* @brief Subsystem groups multiple ports, energies, and control bonds */
+struct subsystem {
+  std::string name;
+  std::vector<powerPair> ports;
+  std::vector<energyPair> energies;
+  std::vector<activeBond> controls;
 };
 
 /* @brief Energy variables found by the integral of power with respect to time
