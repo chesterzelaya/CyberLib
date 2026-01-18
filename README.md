@@ -1,7 +1,6 @@
 # Cybernetics 
 
-This is project and repo meant to outline a journey to specialize
-in cybernetics. 
+A library slowly being built out for anything cybernetics related. 
 
 Cybernetics is the science of communications and automatic control 
 systems in both machines and living things.
